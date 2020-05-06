@@ -138,8 +138,7 @@ function* startRemoving(action){
   
             if (response.status === 204) {
                 const result = yield response.json();
-                console.log(result);
-                // yield put(actions.completeAddingPetOwner(action.payload.id, result));
+                yield put(actions.completeRemovingPetOwner());
             } else {
                 const { non_field_errors } = yield response.json();
                 yield put(actions.failLogin(non_field_errors[0]));
