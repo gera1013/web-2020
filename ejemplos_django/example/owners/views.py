@@ -1,3 +1,5 @@
+from rest_framework import viewsets
+
 from permissions.services import APIPermissionClassFactory
 from owners.models import Owner
 from owners.serializers import OwnerSerializer
@@ -17,7 +19,7 @@ class OwnerViewSet(viewsets.ModelViewSet):
                     'retrieve': True,
                     'destroy': True,
                     'update': True,
-                    'partial_update': False,
+                    'partial_update': True,
                 }
             }
         ),

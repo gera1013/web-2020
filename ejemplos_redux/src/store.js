@@ -14,7 +14,7 @@ export const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware();
   const persistedReducer = persistReducer(
     {
-      key: 'rootx',
+      key: 'rootxxxx',
       storage,
       whitelist: ['auth'],
     },
@@ -29,6 +29,8 @@ export const configureStore = () => {
   const persistor = persistStore(store);
 
   sagaMiddleware.run(mainSaga);
+
+  store.subscribe(() => console.log(store.getState()));
 
   return { store, persistor };
 }
